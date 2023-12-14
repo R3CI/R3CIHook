@@ -14,8 +14,6 @@
 - **Change avatar**
 - **Spam change avatar**
 - **Get all  info about webhook**
-- **Clock** See the current time
-- **Proxy scraper** Get some proxies
 
 ## 🚨 Installation
 

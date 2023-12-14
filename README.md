@@ -17,10 +17,6 @@
 - **Clock** See the current time
 - **Proxy scraper** Get some proxies
 
-**DISCORD SECTION**
-
-Soon
-
 ## 🚨 Installation
 
 1. Clone the repository:

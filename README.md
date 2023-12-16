@@ -14,7 +14,7 @@
 - **Change avatar**
 - **Spam change avatar**
 - **Info fetcher**
-- - **Webhook deleater**
+- **Webhook deleater**
 
 ## 🚨 Installation
 

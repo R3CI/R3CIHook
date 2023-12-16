@@ -1,4 +1,4 @@
-version = 2.0
+version = 2.1
 import os
 os.system("title R3CIHook - Loading...")
 print("Loading...")
@@ -196,16 +196,17 @@ class util:
                     return None, None
                 
             def check_for_update(local, github, changelog):
-                if local == github or local > github: 
+                if local == github:
                     pass
                 else:
-                    os.system("title R3CIHook - New update is released!")
-                    if os.name == "nt": 
-                        os.system("cls")
-                    else:
-                        os.system("clear")
-                    size = os.get_terminal_size().columns
-                    banner = f"""{yellow}
+                    if local > github: 
+                        os.system("title R3CIHook - New update is released!")
+                        if os.name == "nt": 
+                            os.system("cls")
+                        else:
+                            os.system("clear")
+                        size = os.get_terminal_size().columns
+                        banner = f"""{yellow}
 {'      ::::    ::: :::::::::: :::       :::         :::    ::: :::::::::  :::::::::      ::: ::::::::::: :::::::::: ::: '.center(size)}
 {'     :+:+:   :+: :+:        :+:       :+:         :+:    :+: :+:    :+: :+:    :+:   :+: :+:   :+:     :+:        :+:  '.center(size)}
 {'    :+:+:+  +:+ +:+        +:+       +:+         +:+    +:+ +:+    +:+ +:+    +:+  +:+   +:+  +:+     +:+        +:+   '.center(size)}
@@ -214,28 +215,28 @@ class util:
 {' #+#   #+#+# #+#         #+#+# #+#+#          #+#    #+# #+#        #+#    #+# #+#     #+# #+#     #+#                 '.center(size)}
 {'###    #### ##########   ###   ###            ########  ###        #########  ###     ### ###     ########## ###       '.center(size)}                                                                                                     
 """
-                    print(banner)
-                    print(f"{yellow}[#]{res} Current version: {yellow}{local}\n{yellow}[#]{res} Newest version: {yellow}{github}\n")
-                    print(f"{yellow}[#]{res} New features:\n{res}{changelog}")
-                    input(f"{red}[!]{res} If u dont want to update (not reccomended) edit the first line of the code to a higher number {yellow}|{res} Press enter to begin the update")
-                    input(f"{red}[!]{res} Do not close or touch any of its files or shut down ur pc as it may breake the process {yellow}|{res} Press enter to begin the update (this time for real)")
-                    os.system("title R3CIHook - Starded updating...")
+                        print(banner)
+                        print(f"{yellow}[#]{res} Current version: {yellow}{local}\n{yellow}[#]{res} Newest version: {yellow}{github}\n")
+                        print(f"{yellow}[#]{res} New features:\n{res}{changelog}")
+                        input(f"{red}[!]{res} If u dont want to update (not reccomended) edit the first line of the code to a higher number {yellow}|{res} Press enter to begin the update")
+                        input(f"{red}[!]{res} Do not close or touch any of its files or shut down ur pc as it may breake the process {yellow}|{res} Press enter to begin the update (this time for real)")
+                        os.system("title R3CIHook - Starded updating...")
 
-                def download(local, gh):
-                    r = requests.get("https://api.github.com/repos/R3CI/R3CIHook/releases/latest")
-                    if r.status_code == 200:
-                        os.system("title R3CIHook - Getting version info...")
-                        if local <= gh:
-                            data = r.json()
-                            file = data.get("assets", [])
-                            for file in file:
-                                file_url = file.get("browser_download_url")
-                                file_name = file.get("name")
-                                return file_url, file_name
+                    def download(local, gh):
+                        r = requests.get("https://api.github.com/repos/R3CI/R3CIHook/releases/latest")
+                        if r.status_code == 200:
+                            os.system("title R3CIHook - Getting version info...")
+                            if local <= gh:
+                                data = r.json()
+                                file = data.get("assets", [])
+                                for file in file:
+                                    file_url = file.get("browser_download_url")
+                                    file_name = file.get("name")
+                                    return file_url, file_name
+                            else:
+                                pass
                         else:
-                            pass
-                    else:
-                        print(f"{red}[!]{res} Failed to download the update")
+                            print(f"{red}[!]{res} Failed to download the update")
 
                 def download_url(url, save_path):
                     print(f"{green}[*]{res} Downloading started")
@@ -470,7 +471,6 @@ class modules:
                 input(f"{green}[*] Webhook {i} done!")
             except:
                 print(f"{red}[!]{res} Something went wrong... {black}(code {r.status_code})")  
-
 
     def deleate_wb(webhooks):
         for wb in webhooks:

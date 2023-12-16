@@ -1,4 +1,6 @@
-# ⭐ Consider leaving a star
+# R3CIHook, a tool all about webhooks
+
+⭐ **Please leave a star!**
 
 ## 👾 Features
 - **Send message**

@@ -1,6 +1,4 @@
-<p align="center">
-  R3CIHook
-</p>
+# ⭐ Consider leaving a star
 
 ## 👾 Features
 - **Send message**

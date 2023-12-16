@@ -13,7 +13,8 @@
 - **Spam change name**
 - **Change avatar**
 - **Spam change avatar**
-- **Get all  info about webhook**
+- **Info fetcher**
+- - **Webhook deleater**
 
 ## 🚨 Installation
 
